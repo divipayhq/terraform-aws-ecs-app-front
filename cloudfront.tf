@@ -148,10 +148,11 @@ resource "aws_cloudfront_distribution" "default" {
         }
       }
 
-      viewer_protocol_policy = cache_behavior.value.viewer_protocol_policy
-      min_ttl                = lookup(cache_behavior.value, "min_ttl", null)
-      default_ttl            = lookup(cache_behavior.value, "default_ttl", null)
-      max_ttl                = lookup(cache_behavior.value, "max_ttl", null)
+      viewer_protocol_policy     = cache_behavior.value.viewer_protocol_policy
+      response_headers_policy_id = lookup(cache_behavior.value, "response_headers_policy_id", null)
+      min_ttl                    = lookup(cache_behavior.value, "min_ttl", null)
+      default_ttl                = lookup(cache_behavior.value, "default_ttl", null)
+      max_ttl                    = lookup(cache_behavior.value, "max_ttl", null)
     }
   }
 
